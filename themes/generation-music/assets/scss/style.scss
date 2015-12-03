@@ -1,0 +1,201 @@
+@import "bootstrap/bootstrap.scss";
+@import "partials/wordpress";
+@import "partials/mymixins";
+
+#wrapper {
+	margin-top: 70px;
+}
+
+
+
+.display_none {
+  position: absolute;
+  left: -999px;
+  display: none; }
+
+.access {
+  position: absolute;
+  left: -999px;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  background: #000; }
+
+.assistive-text {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px); }
+
+.access p, .access a, .access li, .access h1, .access h2, .access h3, .access h4 {
+  color: #fff; }
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// General Utility Stuff
+
+.seperator { height: 0; clear: both; }
+
+
+.pt { /* Padding Top */
+	padding-top: 1.5em; 
+
+	} 
+
+.pb { /* Padding Bottom */
+	padding-bottom: 1em; 
+	} 
+
+.pl { /* Padding Left */
+	padding-left: 1em; 
+	}
+
+.pr { /* Padding Right */
+	padding-right: 1em; 
+	} 
+
+.ptb { /* Padding Top & Bottom */
+	padding-top: 1em; 
+	padding-bottom: 1em; 
+	} 
+
+.plr { /* Padding Left & Right */
+	padding-left: 1em; 
+	padding-right: 1em; 
+	} 
+
+.ptrbl { /* Padding Top, Right, Bottom, Left */
+	padding: 1em; 
+	} 
+
+.border-top { 
+	border-top: solid 1px #292929; 
+	padding-top: 1em; 
+}
+
+.border-bottom { 
+	border-bottom: solid 1px #292929; 
+	padding-bottom: 0.5em; 
+	margin-bottom: 0.5em;
+
+	@media screen and (min-width: $screen-sm) {
+		margin-bottom: 1.5em;
+	}	
+
+}
+
+.mt { /* margin Top */
+	margin-top: 1.5em; 
+
+	} 
+
+.mb { /* margin Bottom */
+	margin-bottom: 1em; 
+	} 
+
+.ml { /* margin Left */
+	margin-left: 1em; 
+	}
+
+.mr { /* margin Right */
+	margin-right: 1em; 
+	} 
+
+.mtb { /* margin Top & Bottom */
+	margin-top: 1em; 
+	margin-bottom: 1em; 
+	} 
+
+.mlr { /* margin Left & Right */
+	margin-left: 1em; 
+	margin-right: 1em; 
+	} 
+
+.mtrbl { /* margin Top, Right, Bottom, Left */
+	margin: 1em; 
+	} 
+
+
+.mobile-display-none {
+	display: none;
+
+	@media screen and (min-width: $screen-md) {
+		display: inline-block;
+	}
+}
+
+
+
+
+
+.credits {
+
+	background: #000;
+	width: 100%;
+	height: auto;
+
+
+	p {
+		display: inline;
+		color: #fff;
+		margin: 0.75em 1em;
+		
+
+		@media screen and (min-width: $screen-md) {
+			margin: 0.75em 0;
+		}
+	}
+
+	&.alignleft {
+		text-align: left;
+		float: left;
+	}
+
+
+	&.alignright {
+		text-align: right;
+		float: right;
+	}
+
+	a {
+	    background: url('../img/star.png') no-repeat top left;
+	    padding: 0.5em 0 0.5em 1.65em;
+	    text-decoration: none;
+
+    	&:hover {}
+
+	}
+
+
+}
+
+
+
+
+
+/* Go to top ------------------------------------*/
+.scrollup {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    display: none;
+    border-radius: 50%;
+    z-index: 5000;
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+.scrollup i {
+    text-align: center;
+    display: block;
+    line-height: 52px;
+    font-size: 20px; font-size: 1.3rem;
+}
+
+.scrollup:hover { 
+    opacity: 1;
+}
+
+.scrollup:hover i {
+        
+} 

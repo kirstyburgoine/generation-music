@@ -1,0 +1,55 @@
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Widget Ready Stuff
+
+
+.aligncenter { 
+	text-align: center; 
+	margin: 0 auto;
+}
+
+.alignright {
+
+	display: inline;
+	float: right;
+	margin-left: 1em;
+	clear: right;
+}
+
+.alignleft {
+
+	display: inline;
+	float: left;
+	margin-right: 1em;
+
+}
+
+
+img.alignright {
+
+	display: block;
+	margin: 0 auto;
+	float: none;
+
+	@media screen and (min-width: $screen-sm) {
+		display: inline;
+		float: right;
+		margin-left: 1em;
+	}
+}
+
+img.alignleft {
+
+	display: block;
+	margin: 0 auto;
+	float: none;
+
+	@media screen and (min-width: $screen-sm) {
+		display: inline;
+		float: left;
+		margin-right: 1em;
+	}
+}
+
+
+
