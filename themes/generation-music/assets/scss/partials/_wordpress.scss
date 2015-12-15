@@ -3,6 +3,8 @@
 // Widget Ready Stuff
 
 
+
+
 .aligncenter { 
 	text-align: center; 
 	margin: 0 auto;
@@ -24,32 +26,201 @@
 
 }
 
+img.aligncenter { display: block; }
 
-img.alignright {
+img.alignright,
+.wp-caption.alignright {
 
 	display: block;
 	margin: 0 auto;
 	float: none;
 
-	@media screen and (min-width: $screen-sm) {
+	@media screen and (min-width: $screen-xs) {
 		display: inline;
 		float: right;
 		margin-left: 1em;
 	}
 }
 
-img.alignleft {
+img.alignleft,
+.wp-caption.alignleft {
 
 	display: block;
 	margin: 0 auto;
 	float: none;
 
-	@media screen and (min-width: $screen-sm) {
+	@media screen and (min-width: $screen-xs) {
 		display: inline;
 		float: left;
 		margin-right: 1em;
 	}
 }
 
+
+.wp-caption {
+
+	background: $brand-primary-lighter;
+	padding: 5px;
+
+	img { width: 100%; }
+
+	.wp-caption-text { 
+		font-size: 12px; 
+		margin: 5px 0 3px 0;
+		padding: 10px 30px 10px 0;
+		background:   url(../img/arrow-caption.png) no-repeat right top; 
+	}
+
+}
+
+//---------------------------------------------------------
+// Miscellaneous Important Stuff
+
+pre { // USed on product categories
+	background: none!important;
+	border: none!important;
+	line-height: 0!important;
+	padding: 0!important;
+}
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Widget Ready Stuff
+
+.sidebar {
+
+	margin-bottom: 80px;
+
+		.widget {
+
+			margin-bottom: 40px; 
+
+			h3.widget-title { 
+				text-transform: uppercase; 
+				padding-bottom: 20px;
+			}
+
+			&.first {
+				h3.widget-title:after { content: url(../img/arrow-first.png); }
+			}
+
+			&.second {
+				h3.widget-title { text-align: left; background: url(../img/arrow-second.png) no-repeat 170px 40px; }
+			}
+
+			&.third {
+				h3.widget-title:after { content: url(../img/arrow-third.png); }
+			}
+		
+		}
+
+}
+
+.widget {
+
+	h3.widget-title {// margin-top: 0;
+		
+
+	}
+}
+
+
+.rpwe_widget {
+	h3 {
+		a { 
+			color: $gold;
+			font-size: 16px
+		}
+	}
+}
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Posts stuff for Blog
+
+
+.post,
+.search .page {
+	
+	margin-bottom: 2em; 
+
+}
+
+// USed on shop page too for sort by area as well as blog meta
+.meta {
+	border-top: solid 1px $brand-primary-light;
+	border-bottom: solid 1px $brand-primary-light;
+	margin: 1em 0;
+	font-family: $font-family-sans-serif;
+	font-size: 12px;
+	padding: 10px 0;
+}
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Pagination
+
+.navigation {
+	clear: both;
+	margin-top: 2em;
+}
+
+.navigation ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navigation li a,
+.navigation li a:hover,
+.navigation li.active a,
+.navigation li.disabled {
+	color: #fff;
+	text-decoration:none;
+}
+
+.navigation li {
+	display: inline;
+}
+
+.navigation li a,
+.navigation li a:hover,
+.navigation li.active a,
+.navigation li.disabled {
+	background-color: $gray;	
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 12px;
+	padding: 0.75rem;
+}
+
+.navigation li a:hover,
+.navigation li.active a {
+	background-color: $brand-primary;
+}
+
+
+// Next and previous posts
+
+#quick-links-single {
+	border-top: solid 1px $gold;
+	order-bottom: solid 1px $gold;
+	adding: 20px 0;
+	margin: 20px 0;
+}
+
+.post-previous {
+	float: left;
+	width: 50%;
+	max-width: 280px;
+}
+
+.post-next {
+	float: right;
+	width: 50%;
+	max-width: 280px;
+	text-align: right;
+}
 
 

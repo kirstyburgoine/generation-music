@@ -1,12 +1,22 @@
 @import "bootstrap/bootstrap.scss";
 @import "partials/wordpress";
 @import "partials/mymixins";
+@import "partials/owlcarousel";
+@import "partials/owltheme";
+@import "partials/owltransitions";
+@import "partials/gridstyle";
 
-#wrapper {
-	margin-top: 70px;
+body {
+	overflow-x: hidden;
 }
 
+#wrapper {
+	margin-top: 40px;
+}
 
+.home {
+	#wrapper { margin-top: 66px; }
+}
 
 .display_none {
   position: absolute;
@@ -117,54 +127,474 @@
 .mobile-display-none {
 	display: none;
 
-	@media screen and (min-width: $screen-md) {
-		display: inline-block;
+	@media screen and (min-width: $screen-sm) {
+		display: block;
+	}
+}
+
+
+.desktop-display-none {
+	display: block;
+
+	@media screen and (min-width: $grid-float-breakpoint) {
+		display: none;
+	}
+}
+
+.opacity-zero {
+	opacity: 0;
+	display: none;
+
+	@media screen and (min-width: $screen-sm) {
+		display: block;
 	}
 }
 
 
 
 
+//------------------------------------------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Header Area
 
-.credits {
+.site-header { 
+	max-height: 340px;
+	overflow: hidden;
 
-	background: #000;
+	padding-bottom: 40px;
+	background-color: $brand-primary-lighter;
+}
+
+// To prevent admin bar overlapping header area
+.logged-in {
+	.site-banner {
+		&.fixed-header { top: 30px; }
+	}
+}
+
+.site-banner { 
+
 	width: 100%;
-	height: auto;
+	background-color: $brand-primary;
+	z-index: 9999;
 
 
-	p {
-		display: inline;
-		color: #fff;
-		margin: 0.75em 1em;
-		
+
+	// Extra class added to site-header to fix to the top
+	&.fixed-header { 
+
+		@media screen and (min-width: $screen-sm) {
+			position: fixed; z-index: 9999; top : 0;}
+		}
+
+
+	.site-navigation { 
 
 		@media screen and (min-width: $screen-md) {
-			margin: 0.75em 0;
+		float: right; 
 		}
 	}
 
-	&.alignleft {
-		text-align: left;
-		float: left;
+	.mobile-contact {
+		list-style-type: none;
+		padding: 0;
+		margin: 1.35em auto;
+		text-align: center;
+
+		li {
+			display: inline; 
+			margin: 0 0.5em;
+			a {
+				font-size: 24px;
+				background: $white;
+				color: $brand-primary;
+				padding: 10px 10px 5px 10px;
+
+				&:hover,
+				&:active,
+				&:focus {
+					background-color: $brand-primary;
+					color: $white;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	// Main site nav
+	.navbar-nav {
+
+		li {
+
+			a { 
+				
+				color: $white; 
+				&:hover,
+				&:active,
+				&:focus { background-color: $white!important; color: $brand-primary!important; }
+
+				padding: 10px!important;
+			}
+
+
+			ul {
+				li {
+
+					border-bottom: solid 1px $brand-primary-light;
+					&:last-child { border-bottom: none; }
+
+					a { 
+						color: $brand-primary; 
+						&:hover,
+						&:active,
+						&:focus { background-color: $brand-primary!important; color: $white!important; }
+					}
+				}
+			}
+
+		}
+
+		// Telephone and email
+		&.utility {
+			margin-top: 20px;
+			a { 
+				color: $brand-primary-light;
+				&:hover { color: $black!important; background-color: $brand-primary!important; }
+			}
+		}
 	}
 
 
-	&.alignright {
-		text-align: right;
-		float: right;
+
+	.primary-navigation { 
+		clear: right;
+		text-transform: uppercase;
+		border-top: solid 1px #fff;
+		border-bottom: solid 1px #fff;
 	}
 
-	a {
-	    background: url('../img/star.png') no-repeat top left;
-	    padding: 0.5em 0 0.5em 1.65em;
-	    text-decoration: none;
+	.logo-container {
+		background: transparent;
+		margin: 0;
+		width: 100%;
+		
 
-    	&:hover {}
+		@media screen and (min-width: $screen-xs) {
+			width: auto;
+			margin: 10px 0 20px 0;
+		}
+
+		@media screen and (min-width: $grid-float-breakpoint) {
+			display: block;
+			float: left;
+		}
+
+
+		>h1.logo {
+			    background: url('../../assets/img/generation-music.jpg') center no-repeat; 
+			 	height:101px;
+			    width:212px;
+			    margin: 0 auto;
+			    display:block;
+			    @include hide-text;
+
+		    @media screen and (min-width: $screen-sm) {
+		    	float: left;
+		    	margin-top: 0.2em;
+		    }
+
+		    @media screen and (min-width: $screen-md) {
+
+
+
+		    }
+
+		    >a { 
+		    	display: block; 
+		    	width: 100%; 
+		    	height: 100%;
+		    	position: relative;
+		    	z-index: 10;
+		    }
+		}
+
+		>h2 { 
+			margin-top: 0.1em; 
+			font-family: $font-family-serif;
+			font-style: italic;
+			font-size: 20px;
+			text-align: center;
+
+			@media screen and (min-width: $screen-sm) {
+				text-align: left;
+				margin-top: 1.8em; 
+
+			}
+
+			@media screen and (min-width: $screen-md) {
+				font-size: 37px;
+				margin-top: 0.55em; 
+			}
+		}
+
+		// On mobile devices show the white logo in the nav bar and not below
+		&.mobile {
+
+			display: block;
+			
+			margin: 8px auto 0 auto;
+			width: auto;
+
+			>h1.logo {
+			  	background: url('../../assets/img/generation-music.jpg') center no-repeat; 
+			  	background-size: 146px;
+			 	height:50px;
+			    width:146px;
+			    // float: left;
+			    //padding-bottom: 10px;
+			}
+
+			@media screen and (min-width: $grid-float-breakpoint) {
+				display: none;
+			}
+
+		} 
+
+	}
+
+}
+
+
+.page-icon {
+	.container {
+		position: relative;
+
+		.icon-container {
+			width: 195px;
+			height: 95px;
+			position: absolute;
+			bottom: -10px; 
+			right: 0;
+			background-color: $brand-primary-lighter;
+			border-radius: 195px 195px 0 0; 
+			padding: 20px;
+
+			img { 
+				margin: 0 auto;
+				display: block; 
+			}
+		}
+	}
+}
+
+//------------------------------------------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+// HOME
+
+h1.home {
+	font-size: 27px;
+	line-height: 34px;
+	font-weight: 300;
+	text-align: center;
+
+	strong { color: $gold; font-weight: 500; }
+}
+
+.home {
+	.entry-content {
+		margin: 40px 0 60px 0;
+	}
+}
+
+//------------------------------------------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+// PAGES
+
+.entry-content {
+	margin-top: 20px;
+	margin-bottom: 40px;
+
+
+	table {
+
+		width: 100%; 
+
+		tbody {
+			tr:first-child { background-color: $brand-primary; color: $white; }
+			tr:nth-child(2n+2) { background-color: $brand-primary-lighter; }
+		}
+	}
+
+	.wp-caption,
+	img { max-width: 100%; height: auto; }
+
+}
+
+
+
+
+//------------------------------------------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+// FOOTER
+
+.site-footer {
+	background: $gray-lighter url(../img/footer_texture.jpg);
+	min-height: 94px;
+
+
+	.container { 
+		min-height: 94px; 
+		background: url(../img/house-bg.png) no-repeat bottom right; 
+
+		.widget-area {
+			margin: 4em 0;
+
+			h3.widget-title { 
+				text-transform: uppercase; 
+				padding: 20px 0;
+			}
+
+			&.first {
+				h3.widget-title:after { content: url(../img/arrow-first.png); }
+			}
+
+			&.second {
+				h3.widget-title { text-align: left; background: url(../img/arrow-second.png) no-repeat 170px 40px; }
+			}
+
+			&.third {
+				h3.widget-title:after { content: url(../img/arrow-third.png); }
+			}
+		}
 
 	}
 
 
+	&.no-content {
+
+		border-bottom: solid 40px $gray-lighter;
+		min-height: auto;
+
+		.container {
+			position: relative;
+			min-height: auto;
+			background: none;
+
+
+
+			.icon-container {
+				width: 195px;
+				height: 95px;
+				position: absolute;
+				bottom: -20px; 
+				right: 0;
+				background-color: $gray-lighter;
+				border-radius: 195px 195px 0 0; 
+				padding: 20px;
+
+				img { 
+					position : absolute;
+					bottom: -20px;
+					left: -10px; 
+				}
+
+			}
+
+		}
+
+
+	}
+
+}
+
+
+
+
+.credits {
+	background: $brand-primary-light ;
+	padding-top: 10px;
+	//border-top: solid 10px $brand-primary;
+	width: 100%;
+	height: auto;
+
+	.credits-border {
+		background: url(../img/credits-border.png) repeat-x top left;
+		height: 9px;
+		width: 100%;
+		margin-top: -15px;
+	}
+
+	.container { 
+
+		background: url(../img/made-in-oswestry.png) no-repeat right 12px;
+
+		ul.footer-menu {
+
+			li {
+				&:first-child { 
+					a { 
+						padding-left: 0; 
+					}
+				}
+
+				a { 
+					font-size: 12px;
+					color: $black;
+					padding-bottom: 0;
+					padding-top: 20px;
+
+					&:hover,
+					&:active { 
+						background: $brand-primary-light; 
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		p {
+			display: inline;
+			color: $brand-primary;
+			margin: 1em;
+			font-size: 10px;
+			
+
+			@media screen and (min-width: $screen-md) {
+				margin: 0.5em 0 1.5em 0;
+			}
+		
+
+			&.alignleft {
+				text-align: left;
+				float: left;
+
+			    padding: 0em 0 0.5em 0;
+
+				a {
+				    text-decoration: none;
+
+			    	&:hover {
+			    		text-decoration: underline;
+			    	}
+
+				}
+			}
+
+		}
+
+
+		&.alignright {
+			text-align: right;
+			float: right;
+		}
+
+		
+
+	}
 }
 
 

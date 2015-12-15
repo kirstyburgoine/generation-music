@@ -1,36 +1,59 @@
-//$(document).ready(function() {
+jQuery(document).ready(function() {
 
 //----------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------
 // Mobile Menu Stuff
 //----------------------------------------------------------------------------------------------------------------
-
-$("ul.sub-menu").addClass('dropdown-menu');  
-$('li.dropdown a').attr('data-toggle', 'dropdown');
-$("li.menu-item-has-children a").append('<b class="caret"></b>');
-$("li.menu-item-has-children .sub-menu li a b.caret").remove();
-
+/*
+jQuery("ul.sub-menu").addClass('dropdown-menu');  
+jQuery('li.dropdown a').attr('data-toggle', 'dropdown');
+jQuery("li.menu-item-has-children a").append('<b class="caret"></b>');
+jQuery("li.menu-item-has-children .sub-menu li a b.caret").remove();
+*/
 //----------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------
 // Scroll to top
 //----------------------------------------------------------------------------------------------------------------
 
+});
 
-$(window).scroll(function(){
+jQuery(function() {
+			
+	jQuery( '#ri-grid' ).gridrotator({
+		rows: 1,
+		columns: 4,
+		step: 'random',
+		maxStep: 3,
+		animType: 'fadeInOut',
+		w320: {
+			rows: 1,
+			columns: 2
+		},
+		w240: {
+			rows: 1,
+			columns: 2
+		}
+	});
 
-	if ($(this).scrollTop() > 100) {
-    	$('.scrollup').fadeIn();
+});
+
+
+
+jQuery(window).scroll(function(){
+
+	if (jQuery(this).scrollTop() > 100) {
+    	jQuery('.scrollup').fadeIn();
   
   	} else {
-    	$('.scrollup').fadeOut();
+    	jQuery('.scrollup').fadeOut();
   
   	}	
 
 }); 
  
-$('.scrollup').click(function(){
+jQuery('.scrollup').click(function(){
   
-	$("html, body").animate({ scrollTop: 0 }, 600);
+	jQuery("html, body").animate({ scrollTop: 0 }, 600);
 	return false;
 
 });
@@ -38,9 +61,23 @@ $('.scrollup').click(function(){
 
 //----------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------
-// tool tip
+// Owl Carousel
 //----------------------------------------------------------------------------------------------------------------
 
+jQuery(document).ready(function() {
+ 
+  jQuery("#owl").owlCarousel({
+ 
+      autoPlay: false, //Set AutoPlay to 3 seconds
+      items : 5,
+      itemsDesktop : [1199,5],
+      itemsDesktopSmall : [979,3],
+      pagination : false,
+      autoHeight : true
+ 
+  });
+ 
+});
 
 //----------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------

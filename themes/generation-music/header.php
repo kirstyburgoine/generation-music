@@ -10,6 +10,7 @@
         <title><?php wp_title( '|', true, 'right' ); ?></title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        
 
         <link rel="shortcut icon" type="image/ico" href="favicon.png" />
         <link rel="shortcut icon" href="favicon.png"> 
@@ -21,7 +22,7 @@
         <link href="<?php bloginfo('template_directory'); ?>/assets/css/style.min.css" rel="stylesheet" type="text/css" media="all"/>
 
       
-        <?php echo $typekit = get_field('typekit', 'options'); ?>
+        
 
         <!--Shims-->
         <!--[if lt IE 9]>
@@ -32,6 +33,8 @@
         <!- - Web App-->
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        
 
 
         <?php wp_head(); ?>

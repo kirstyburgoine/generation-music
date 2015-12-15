@@ -1,6 +1,6 @@
 <?php
 /**
- * The main page template file
+ * Template Name: Stockists
  *
  */
 
@@ -28,7 +28,7 @@ if ( have_posts() ) : the_post();  ?>
 
 				<?php the_content(); ?>
 
-			
+				<div id="map-canvas"></div>
 
 		<?php
 		$two_columns = get_field('two_column_layout');

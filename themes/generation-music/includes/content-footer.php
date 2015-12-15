@@ -1,67 +1,32 @@
-<div class="col-md-3 first widget-area" role="complementary">
-
-	<aside class="widget">
-
-		<h3 class="widget-title"></h3>
-
-		    <?php
-		    wp_nav_menu( 
-		        array( 
-		        'container' => '',
-		        'menu_class' => 'block-list menu',
-		        'theme_location' => 'footer-menu-1' 
-		        ) 
-		    ); ?>
+<div class="row content-footer">
+	<div class="col-md-4 first widget-area" role="complementary">
 
 
-	</aside>
-
-</div>
-
-
-<div class="col-md-3 second widget-area" role="complementary">
-
-	<?php 
-	if ( is_active_sidebar( 'sidebar-3' ) ) : 
-		dynamic_sidebar( 'sidebar-3' ); 
-	endif; ?>
-
-</div>
+			<?php 
+			if ( is_active_sidebar( 'sidebar-3' ) ) : 
+				dynamic_sidebar( 'sidebar-3' ); 
+			endif; ?>
 
 
-<div class="col-md-3 third widget-area" role="complementary">
-
-	<aside class="widget">
-
-		<h3 class="widget-title with-span"></h3>
-
-			<?php
-		    wp_nav_menu( 
-		        array( 
-		            'container' => '',
-		            'menu_class' => 'block-list menu',
-		            'theme_location' => 'footer-menu-2' 
-		        ) 
-		    ); ?>
-
-	</aside>
-
-</div>
+	</div>
 
 
-<div class="col-md-3 fourth widget-area" role="complementary">
-
-	<aside class="widget">
-
-		<h3 class="widget-title"></h3>
+	<div class="col-md-4 second widget-area" role="complementary">
 
 		<?php 
-		if ( is_active_sidebar( 'sidebar-2' ) ) : 
-			dynamic_sidebar( 'sidebar-2' ); 
+		if ( is_active_sidebar( 'sidebar-4' ) ) : 
+			dynamic_sidebar( 'sidebar-4' ); 
 		endif; ?>
 
-	</aside>
+	</div>
 
 
+	<div class="col-md-4 third widget-area" role="complementary">
 
+			<?php 
+			if ( is_active_sidebar( 'sidebar-5' ) ) : 
+				dynamic_sidebar( 'sidebar-5' ); 
+			endif; ?>
+
+	</div>
 </div>

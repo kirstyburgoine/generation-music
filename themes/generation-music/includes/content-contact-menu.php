@@ -11,8 +11,6 @@ $contact_telephone = get_field('contact_telephone', 'options');
 ?>
 
     <ul class="social">
-            <?php if ($contact_telephone) : ?><li><a href="call:<?php echo $contact_telephone; ?>" class="ss-icon ss-social-circle">telephone</a></li><?php endif; ?>
-            <?php if ($contact_email) : ?><li><a href="mailto:<?php echo $contact_email; ?>" class="ss-icon ss-social-circle">email</a></li><?php endif; ?>
             <?php if ($twitter_account) : ?><li><a href="<?php echo $twitter_account; ?>" class="ss-icon ss-social-circle" target="_blank">twitter</a></li><?php endif; ?>
             <?php if ($facebook_page) : ?><li><a href="<?php echo $facebook_page; ?>" class="ss-icon ss-social-circle" target="_blank">facebook</a></li><?php endif; ?>
             <?php if ($googleplus_page) : ?><li><a href="<?php echo $googleplus_page; ?>" class="ss-icon ss-social-circle" target="_blank">google+</a></li><?php endif; ?>

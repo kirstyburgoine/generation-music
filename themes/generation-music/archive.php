@@ -1,74 +1,92 @@
 <?php
 /* 
- * Custom post type archive for Recipes
- */
+ * Main blog Archive
+ 
 
-$order = $_GET['order'];
+ 	$category = get_categories();
+	$cat = get_query_var('cat');
+
+	if ($category) {
+	$top = get_category_parents($category[0], false, ',');
+	$cat_top = explode(",", $top);
+	$cat_id = get_cat_id($cat_top[0]);
+	}
+	
+	$cat_title = get_cat_name($cat_id);
+	$current_title = get_cat_name($cat);
+
+*/
+
 
 get_header(); ?>
 
-	<div class="container pt">
+<div class="container" id="content">
 
-		<div class="grid">
+	<div class="row">
 
-			<div class="grid__item palm-one-whole lap-one-whole three-quarters">
-
-			<?php
-			if ( $order == "alphabet" ) :
-				global $query_string;
-				query_posts( $query_string . '&orderby=name&order=ASC' );
-			endif;
-			
-			if ( have_posts() ) : ?>
+		<div class="col-xs-12 col-md-9">
 
 
-				<form method="get" action="" name="sort" class="sort">
 
-					<label for="order">Sort recipes by:</label>
+				<header class="page-header">
 
-					<select id="order" name="order">
-        				<option name="latest" value="latest">Latest Added</option>
-        				<option name="alphabet" value="alphabet" <?php if ( $order == "alphabet" ) :?>selected<?php endif; ?>>A to Z</option>
-        			</select>
+					<h1>
+			                    
+					<?php 
+					if ( is_category() ) : 
 
-        			<input type="submit" class="searchme ss-icon" name="submit" id="sortbtn" value="down" />
+						single_cat_title(); 
 
-		
+					elseif ( is_tag() ) : ?>
+						Posts Tagged <strong><?php single_tag_title(); ?></strong>
+					
+					<?php 
+					elseif ( is_day() ) : ?>
+						<?php printf( __( 'Daily Archives: %s', 'parentheme' ), '<strong>' . get_the_date() . '</strong>' ); ?>
+						
+					<?php elseif ( is_month() ) : ?>
+						<?php printf( __( 'Monthly Archives: %s', 'parentheme' ), '<strong>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'parentheme' ) ) . '</strong>' ); ?>
+											
+					<?php elseif ( is_year() ) : ?>
+						<?php printf( __( 'Yearly Archives: %s', 'parentheme' ), '<strong>' . get_the_date( _x( 'Y', 'yearly archives date format', 'parentheme' ) ) . '</strong>' ); ?>
+											
+					<?php else : ?>
+						<?php _e( '<strong>All Items</strong>', 'parentheme' ); ?>
+					<?php endif; ?>
+					
+					</h1>
 
-        		</form>
-
-
-				<h1 class="archive-title"><?php single_cat_title(); ?></h1>
-
-
+				</header>
 
 				<?php
-					// Start the Loop inside the include so post counts work.
-						get_template_part( 'content', 'recipe-archive' );
+				$category_description = category_description();
+				if ( ! empty( $category_description ) )
+				echo apply_filters( 'category_archive_meta', '<div class="description">' . $category_description . '</div>' ); ?>
+
+				<?php 
+					//
+					while ( have_posts() ) : the_post(); 
+
+						get_template_part( 'includes/content', 'archive' );
+
+					endwhile;
+
+					wpbeginner_numeric_posts_nav();  ?>
+
+		</div>
+
+		<div class="col-xs-12 col-md-3">
+
+			<?php get_sidebar(); ?>
+
+		</div>
 
 
 
-				else :
-				// If no content, include the "No posts found" template.
-				get_template_part( 'content', 'none' );
+	</div> <!-- // row -->
 
-				endif; wp_reset_query(); 
-				?>
-			</div><!--
-
-			--><div class="grid__item palm-one-whole lap-one-whole one-quarter">
-			
-					<?php get_sidebar(); ?>
+</div>
 
 
 
-			</div>
-
-
-		</div> <!-- // Grid -->
-
-	</div>
-
-
-<?php //get_sidebar(); ?>
 <?php get_footer(); ?>
